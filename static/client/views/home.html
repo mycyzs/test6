@@ -1,0 +1,48 @@
+<div style="width: 100%; height: 100%;padding: 5px">
+    <fieldset class="fieldsetName">
+        <legend style="">查询条件</legend>
+        <div class="container-fluid">
+            <div style="float:left;">
+                <label style="float:left;margin-top: 5px;">系统名：</label>
+                <input type="text" ng-model="args.sys_name" style="width:150px;float:left;"
+                       class="form-control" placeholder="请输入系统名"/>
+            </div>
+            <div style="float:left;margin-left: 10px;">
+                <label style="float:left;margin-top: 5px;">系统简称：</label>
+                <input type="text" ng-model="args.sys_code" style="width:150px;float:left;"
+                       class="form-control" placeholder="请输入系统简称"/>
+            </div>
+
+            <div style="float:left;margin-left: 10px;">
+                <label style="float:left;margin-top: 5px;">负责人：</label>
+                <input type="text" ng-model="args.owner" style="width:150px;float:left;"
+                       class="form-control" placeholder="请输入负责人"/>
+            </div>
+
+            <div style="float:left;margin-left: 10px;">
+                <label style="float:left;margin-top: 5px;">下拉选择：</label>
+                <input type="text" cw-selectstr2="templateOption" ng-model="args.selected_id" style="width:150px;float:left;"
+                       class="" />
+            </div>
+
+            <div style="float:left;margin-left:15px;">
+                <button ng-click="search_sys_info()" class="btn btn-sm btn-deppon-primary">查询</button>
+            </div>
+
+            <div style="float:left;margin-left:15px;">
+                <button ng-click="add_sys()" class="btn btn-sm btn-deppon-warning">新增</button>
+            </div>
+
+
+            <input id="uploadFile" style="display: none" onchange="angular.element(this).scope().uploadCsv()"
+                   name="uploadFile" type="file"/>
+            <div style="float: right;margin-right: 20px;">
+                <button type="submit" class="button_op" onclick="document.getElementById('uploadFile').value = ''; document.getElementById('uploadFile').click();"
+                        style="background: #0090ff;color: #fff;width: 92px"> 导入模板
+                </button>
+            </div>
+
+        </div>
+    </fieldset>
+    <div cw-adaptbody="100" ng-grid="gridOption" style="width:100%;overflow-y: auto;overflow-x: hidden;"></div>
+</div>

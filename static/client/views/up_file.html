@@ -1,0 +1,22 @@
+<div>
+    <div dragable dialog-title="{{ title }}"></div>
+    <div style="width: 100%;padding: 20px 0 20px 40px;">
+        <form style="display: inline-block" class="form-horizontal" id="upload_file_form" method="POST"
+              enctype="multipart/form-data">
+            <div class="demo" id="kendo_upload_demo3">
+                <input name="files" class="file_input" type="file" required>
+            </div>
+        </form>
+        <div style="text-align: center;margin-top: 10px;">
+            <button class="btn btn-sm btn-default" ng-if="clickop">
+                正在上传，请稍后
+            </button>
+            <button class="btn btn-sm btn-primary" ng-click="confirm()" ng-if="!clickop">
+                确认
+            </button>
+            <button style="margin-left: 20px;" class="btn btn-sm btn-default" ng-click="cancel()" ng-if="!clickop">
+                取消
+            </button>
+        </div>
+    </div>
+</div>

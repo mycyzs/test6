@@ -1,0 +1,31 @@
+.top-nav{
+    height:60px;
+    background:#fff;
+    box-shadow: 0 5px 5px rgba(170, 170, 170, .32);
+    line-height: 60px;
+    z-index: 999;
+}
+
+.container .logo{
+    background-position:left center;
+    margin-left:15px;
+    background-size:auto auto;
+    height: 60px;
+    margin-top:0;
+}
+.container .logo-href{
+    font-size: 30px;
+    float: none !important;
+    display: inline-block;
+    margin-left:5px !important; ;
+    line-height: 30px;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(168, 219, 245, 0.9)), to(rgba(3, 134, 207, 1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.logout{
+    color:#37b9ed;
+}
+.logout:hover{
+    color:#ddd;
+}

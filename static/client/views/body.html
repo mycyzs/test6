@@ -1,0 +1,47 @@
+<div>
+{#     <div style="float: left">#}
+{#         <img ng-src="{{ current_url }}get_background_img/?id={{ b.id }}" alt="" >#}
+{#     </div>#}
+    <div>
+    <div><button ng-click="choosePicMenu()">点击上传图片</button></div>
+    <input ng-hide="true" type="file" id="photoBtn" accept="image/*" onchange="angular.element(this).scope().up_pic()"/>
+    </div>
+
+
+    <div>
+    <div style="margin-top: 10px">
+        <button ng-click="upload_field()">上传普通文件</button> <button style="margin-left: 20px" ng-click="down_load_field()">下载普通文件</button>
+    </div>
+
+    <input id="uploadInfo" multiple style="display: none" onchange="angular.element(this).scope().uploadItem()" name="uploadInfo[]" type="file"/>
+    </div>
+
+
+    <div style="margin-top: 10px">
+        <button ng-click="upload()">导入excel</button>
+        <button ng-click="down_excel()" style="margin-left: 30px">导出excel</button>
+    </div>
+        <input id="uploadFile" style="display: none" onchange="angular.element(this).scope().uploadCsv()"
+                   name="uploadFile" type="file"/>
+        <div style="float: left;margin-top: 10px">
+            <button type="submit" class="button_op" onclick="document.getElementById('uploadFile').value = ''; document.getElementById('uploadFile').click();"
+                    style="background: #0090ff;color: #fff;width: 150px"> 导入CSV
+            </button>
+        </div>
+        <button ng-click="down_csv()" style="margin-left: 30px;margin-top: 10px">导出CSV</button>
+
+
+    <div>
+        <div style="">
+                <label style="float:left;margin-top: 5px;">所有业务：</label>
+                <input type="text" cw-selectstr2="templateOption" ng-change="changeDB()" ng-model="args.biz_id" style="width:150px;float:left;"
+                       class="" />
+        </div>
+
+
+        <div style="width: 270px;height: 470px;overflow-y: auto">
+            <ul id="testList" ztree="zTreeOptions" ng-model="testTree" class="ztree"></ul>
+        </div>
+
+    </div>
+</div>

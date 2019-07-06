@@ -1,0 +1,98 @@
+cd /data/lhf;      #跳转到某个目录
+ls；         查看当前目录下的文件
+sh sleep.sh； 执行脚本
+ps aux | grep sleep； 查看这个名称的进程
+kill -9 345;     停止进程号为345这个进程
+
+touch ；   新建一个文件
+rm -f test.py ;   删除文件
+vi 或者vim  test.py;     操作文件并且保存
+cat test.py；   查看文件内容
+
+
+MYSQL
+mysql service start    启动
+mysql -u root -p MYSQL   连接数据库
+show databases;      查看当前所有数据库
+create database fta      创建数据库
+exit     退出
+
+REDIS
+cd desktop/mysql/redis/redis-3.0.4/   安装路径
+./src/redis-server redis.conf     启动redis服务器端， 进入目录已配置文件启动，不会占用窗口
+./src/redis-cli             连接redis
+./src/redis-cli -h 127.0.0.1 -p 6379 shutdown     停止服务
+
+
+BEANSTALKD
+/usr/bin/beanstalkd -l 127.0.0.1 -p 11300 &    启动
+sudo service beanstalkd stop  #停止
+sudo service beanstalkd start #启动
+
+设置系统时间与网络时间同步
+ntpdate cn.pool.ntp.org
+
+将系统时间写入硬件时间
+hwclock --systohc
+
+
+
+登录zabbix服务器
+http://192.168.122.159/zabbix/index.php
+用户名/密码：  Admin/zabbix
+访问zabbix数据库，用户名/密码： zabbix/zabbix
+重启：systemctl restart zabbix-server
+默认端口：10051
+zabbix-agent默认端口10050
+
+
+
+
+防火墙
+[root@localhost ~]# firewall-cmd --state 
+not running           #关闭后显示not running，开启后显示running
+
+1.2.1停止firewall
+[root@localhost ~]# systemctl stop firewalld.service
+
+1.2.2禁止firewall开机启动
+[root@localhost ~]# systemctl disable firewalld.service
+
+getenforce         #检测selinux是否关闭，Disabled 为关闭
+setenforce 0       #临时关闭命令
+
+
+
+windows
+
+Zabbix Agent安装与卸载，启动与stop
+cmd /c "C:\zabbix\bin\win64\zabbix_agentd.exe -c c:\zabbix\conf\zabbix_agentd.win.conf -i"
+cmd /c "C:\zabbix\bin\win64\zabbix_agentd.exe -c c:\zabbix\conf\zabbix_agentd.win.conf -s"
+
+cmd /c "C:\zabbix\bin\win64\zabbix_agentd.exe -c c:\zabbix\conf\zabbix_agentd.win.conf -x"
+cmd /c "C:\zabbix\bin\win64\zabbix_agentd.exe -c c:\zabbix\conf\zabbix_agentd.win.conf -d"
+
+
+-c ：指定配置文件所有位置
+-i ：安装客户端
+-s ：启动客户端
+-x ：停止客户端
+-d ：卸载客户端
+
+启动之后查看端口： netstat -ano|findstr "10050"
+根据pid查看是哪个程序在占用这个端口：  tasklist|findstr "10268"
+
+
+切换虚拟环境
+cd my_env
+
+进入虚拟环境：source bin/activate
+退出虚拟环境： deactivate
+
+
+httpresponse 默认状态码是200，可以自定义status，前端js对不同状态码进行弹框提示
+
+
+open-falcon
+启动：cd /home/front/open-falcon/dashboard/
+sudo bash control start 
